@@ -12,20 +12,26 @@ namespace RestaurantMenu
         public DateTime LastUpdated { get; set; }
 
 
-        public Menu(List<MenuItem> item, DateTime updateDate)
+        public Menu(List<MenuItem> item)
         {
             menuItems = item;
-            //LastUpdated = updateDate;
+            LastUpdated = DateTime.Today;
         }
 
-        public void AddMenuItem(MenuItem item)
+        public Menu(List<MenuItem> item, DateTime updateTime)
         {
-            LastUpdated = item.DateCreated;
-            menuItems.Add(item);
+            menuItems = item;
+            LastUpdated = updateTime;
+        }
+
+        public void AddMenu(MenuItem list)
+        {
+            LastUpdated = list.DateCreated;
+            menuItems.Add(list);
         }
 
         /*
-         * Menu should include list of the current date, display items, and ability to input new items and pass it to the menu items class list/dictionary
+         * *** Menu Items should include list of the current date, display items, and ability to input new items and pass it to the menu items class list/dictionary
          */
 
         public string PrintMenu()

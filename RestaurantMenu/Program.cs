@@ -28,26 +28,35 @@ namespace RestaurantMenu
             // Starting the MenuItem Class and setting it as a variable item
             // var item = new MenuItem();
 
-            /*
-             * 
-            //Create several items and add them to a menu.
-            //Print the entire, updated menu to the screen.
-            //Print an individual menu item to the screen.
-            //Delete an item from a menu, then reprint the menu
-             *
-            */
+            //print current date
+            Console.WriteLine(DateTime.Today);
 
-            var testDate = new DateTime(2020, 03, 21);//today's date
+            //retrieve Menu
+            var AddMenu = new List<MenuItem>();
+            //call function to retrieve all items currently in menu
 
-            var item = new MenuItem(2.99, "TestItem", "Appetizer", testDate);
+            var testMenu = new Menu(AddMenu);
+            Console.WriteLine("Menu:\n" + testMenu.PrintMenu());//(should be empty list for now)
 
-            var testMenu = new Menu(item, testDate);
+            //present options
 
-            //testMenu.AddMenuItem(test);
-   
+            //user selects add menu items
+            //user inputs menu items
+            var testDate = new DateTime(2020, 03, 21);//gets user input
+            var test = new MenuItem(1.99, "Salad", "Appetizer", testDate);
+            Console.WriteLine("Sanity Check:\n" + test);//check content (sanity check)
+            //check if menu item input is included already in menu
+            //add the menu item to the list
+            testMenu.AddMenu(test);
 
-            //Console.WriteLine(test.ToString());
-            Console.WriteLine(testMenu.PrintMenu());
+            //user wants to add more items
+            test = new MenuItem(12.99, "Burger", "Main", testDate);
+            testMenu.AddMenu(test);
+            test = new MenuItem(2.99, "Ice Cream", "Dessert", testDate);
+            testMenu.AddMenu(test);
+            Console.WriteLine("Sanity Check for Items Added:\n" + testMenu.PrintMenu());
+
+            //user selects delete
         }
     }
 }

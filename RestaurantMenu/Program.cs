@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace RestaurantMenu
 {
@@ -25,9 +26,28 @@ namespace RestaurantMenu
             //MenuItem.storeValue(inputMenu);
 
             // Starting the MenuItem Class and setting it as a variable item
-            var item = new MenuItem();
-            item.food;
+            // var item = new MenuItem();
 
+            /*
+             * 
+            //Create several items and add them to a menu.
+            //Print the entire, updated menu to the screen.
+            //Print an individual menu item to the screen.
+            //Delete an item from a menu, then reprint the menu
+             *
+            */
+
+            var testDate = new DateTime(2020, 03, 21);//today's date
+
+            var item = new MenuItem(2.99, "TestItem", "Appetizer", testDate);
+
+            var testMenu = new Menu(item, testDate);
+
+            //testMenu.AddMenuItem(test);
+   
+
+            //Console.WriteLine(test.ToString());
+            Console.WriteLine(testMenu.PrintMenu());
         }
     }
 }

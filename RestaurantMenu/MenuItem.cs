@@ -21,17 +21,42 @@ namespace RestaurantMenu
         //}
 
         //// initialize the input from the user using get . set
-        public float Price { get; set; }
+        public double Price { get; set; }
         public string Description { get; set; }
         public string Category { get; set; }
         public bool IsNew { get; set; }
+        public DateTime DateCreated { get; set; }
 
-        public MenuItem(float price, string description, string category, bool isNew)
+        //to initialize the date for the menu
+        //checks if date has been created, if not, initialize today's date
+        //if else, checks if equals 0,0,0, if it does, initialize it with today's date
+
+        //5.6.1.3
+        //make the menu item date last modified
+
+        //5.6.1.2
+        //check if item is new has, then check for math 90 days,
+
+        public MenuItem(double price, string description, string category, DateTime dateCreated)
         {
             Price = price;
             Description = description;
             Category = category;
-            IsNew = isNew;
+            DateCreated = dateCreated;
+            
+            if (DateTime.Today - DateCreated >= TimeSpan.FromDays(90))
+            {
+                IsNew = false;
+            }
+            else
+            {
+                IsNew = true;
+            }
+        }
+
+        public override string ToString()
+        {
+            return "Price:  " + Price + "\nDescription:  " + Description + "\nCategory:  " + Category + "\nIs item new:  " + IsNew;
         }
 
         /*
